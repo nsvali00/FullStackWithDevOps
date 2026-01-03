@@ -36,4 +36,26 @@ The project demonstrates real-world full-stack concepts such as REST APIs, authe
 
 ## 📁 Project Structure
 
+root/
+├── backend/
+│ ├── src/main/java/...
+│ ├── src/main/resources/
+│ ├── pom.xml
+│ └── Dockerfile
+│
+├── frontend/
+│ ├── src/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ ├── services/
+│ │ └── App.tsx
+│ ├── package.json
+│ └── Dockerfile
+│
+├── docker-compose.yml
+├── k8s/
+│ ├── backend-deployment.yaml
+│ └── frontend-deployment.yaml
+└── README.md
+
 
