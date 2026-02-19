@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class DataLoader {
 
         public DataLoader(TaskRepository taskRepository) {
-            taskRepository.save(new Task(null, "Learn Spring Boot", false));
+            taskRepository.save(new Task(null, "Learn Spring Boot", true));
             taskRepository.save(new Task(null, "Build React UI", false));
         }
 
