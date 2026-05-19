@@ -1,19 +1,14 @@
 package com.workout.taskmanager.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+
 @Entity
-@Getter
-@Setter
 public class Task {
-    // maybe setter not wanted and needed
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Version
-    private Long version;
     private boolean completed;
 
     public Task() {
@@ -25,4 +20,23 @@ public class Task {
         this.completed = completed;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 }
