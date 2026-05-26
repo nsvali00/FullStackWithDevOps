@@ -1,4 +1,4 @@
-package com.workout.taskmanager.model;
+package com.workout.taskmanager.entity;
 
 import jakarta.persistence.*;
 

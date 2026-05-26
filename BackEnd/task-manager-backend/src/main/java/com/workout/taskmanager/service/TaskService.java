@@ -3,15 +3,13 @@ package com.workout.taskmanager.service;
 import com.workout.taskmanager.dto.request.TaskCreateRequest;
 import com.workout.taskmanager.dto.request.TaskUpdateRequest;
 import com.workout.taskmanager.dto.response.TaskResponseDTO;
-import com.workout.taskmanager.exceptions.InvalidTaskException;
 import com.workout.taskmanager.exceptions.TaskNotFoundException;
 import com.workout.taskmanager.mapper.TaskMapper;
-import com.workout.taskmanager.model.Task;
+import com.workout.taskmanager.entity.Task;
 import com.workout.taskmanager.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TaskService {
