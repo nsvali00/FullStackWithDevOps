@@ -1,9 +1,9 @@
 package com.workout.taskmanager.controller;
 
 import com.workout.taskmanager.common.ApiResponse;
-import com.workout.taskmanager.dto.TaskRequestDTO;
-import com.workout.taskmanager.dto.TaskResponseDTO;
-import com.workout.taskmanager.model.Task;
+import com.workout.taskmanager.dto.request.TaskCreateRequest;
+import com.workout.taskmanager.dto.request.TaskUpdateRequest;
+import com.workout.taskmanager.dto.response.TaskResponseDTO;
 import com.workout.taskmanager.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -43,13 +43,25 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<ApiResponse<TaskResponseDTO>> createTask(@RequestBody TaskRequestDTO newTask){
+    public ResponseEntity<ApiResponse<TaskResponseDTO>> createTask(@RequestBody TaskCreateRequest newTask){
         TaskResponseDTO createdTaskDTO = taskService.createTask(newTask);
         ApiResponse<TaskResponseDTO> apiResponse = new ApiResponse<>();
         apiResponse.setData(createdTaskDTO);
         apiResponse.setStatus(HttpStatus.CREATED);
         apiResponse.setMessage("Task created successfully");
         return ResponseEntity.status(HttpStatus.CREATED).body(apiResponse);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<ApiResponse<TaskResponseDTO>> patch(
+            @PathVariable Long id,
+            @RequestBody TaskUpdateRequest request) {
+
+        TaskResponseDTO updated = taskService.patchTask(id, request);
+
+        return ResponseEntity.ok(
+                new ApiResponse<>(updated, "Task updated", HttpStatus.OK)
+        );
     }
 
 

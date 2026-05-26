@@ -8,6 +8,15 @@ public class ApiResponse<T> {
     String message;
     HttpStatus status;
 
+    public ApiResponse() {
+    }
+
+    public ApiResponse(T data, String message, HttpStatus status) {
+        this.data = data;
+        this.message = message;
+        this.status = status;
+    }
+
     public T getData() {
         return data;
     }
